@@ -1,4 +1,7 @@
 #include "maelstrom.hpp"
+#include <fstream>
+#include <vector>
+#include <iostream>
 
 namespace maelstrom {
 
