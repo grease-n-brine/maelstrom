@@ -1,5 +1,5 @@
-#include "maelstrom.hpp"
-#include "exceptions.hpp"
+#include "../include/maelstrom.hpp"
+#include "../include/exceptions.hpp"
 #include <fstream>
 #include <vector>
 #include <iostream>

@@ -1,5 +1,5 @@
-#include "maelstrom.hpp"
-#include "exceptions.hpp"
+#include "../include/maelstrom.hpp"
+#include "../include/exceptions.hpp"
 #include <iostream>
 
 int main(int argc, char* argv[]) {
