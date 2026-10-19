@@ -44,7 +44,6 @@ bool Maelstrom::run_engine() const {
     }
 
     outFile.close();
-
     return true;
 }
 
