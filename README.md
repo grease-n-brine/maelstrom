@@ -8,8 +8,11 @@ A lightweight, modular C++ file bit scrambler utilizing a symmetric binary XOR c
 
 ## Usage
 
-**1.  Scrambling:**
+**1. Scrambling:**
 
         ./maelstrom <file_path> <encryption_key>
 
 
+**2. Unscrambling:**
+
+        ./maelstrom <file_path> <encryption_key>
