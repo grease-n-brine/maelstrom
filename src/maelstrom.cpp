@@ -26,6 +26,12 @@ bool Maelstrom::run_engine() const {
         return false;
     }
 
+    inFile.close();
+
+    for (char &byte : buffer) {
+        byte ^= key;
+    }
+
     // Process the buffer as needed
     return true;
 }
