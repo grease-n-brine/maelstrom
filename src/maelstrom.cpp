@@ -14,6 +14,7 @@ bool Maelstrom::run_engine() const {
 
     if (!inFile) {
         throw FileOpenException("Failed to open file: " + path);
+        return false;
     }
 
     std::streamsize size = inFile.seekg(0, std::ios::end).tellg();
@@ -22,6 +23,7 @@ bool Maelstrom::run_engine() const {
 
     if (!inFile.read(buffer.data(), size)) {
         throw FileReadException("Failed to read file: " + path);
+        return false;
     }
 
     // Process the buffer as needed
