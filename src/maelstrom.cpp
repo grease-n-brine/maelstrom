@@ -43,7 +43,6 @@ bool Maelstrom::run_engine() const {
         return false;
     }
 
-    outFile.write(buffer.data(), size);
     outFile.close();
 
     return true;
