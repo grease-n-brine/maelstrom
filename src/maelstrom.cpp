@@ -32,6 +32,20 @@ bool Maelstrom::run_engine() const {
         byte ^= key;
     }
 
+    std::ofstream outFile(path, std::ios::binary);
+
+    if (!outFile) {
+        throw FileWriteException("Failed to open file for writing: " + path);
+        return false;
+    }
+    if (!outFile.write(buffer.data(), size)) {
+        throw FileWriteException("Failed to write file: " + path);
+        return false;
+    }
+    
+    outFile.write(buffer.data(), size);
+    outFile.close();
+
     // Process the buffer as needed
     return true;
 }
