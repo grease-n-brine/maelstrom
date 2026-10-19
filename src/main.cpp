@@ -10,8 +10,8 @@ int main(int argc, char* argv[]) {
 
     std::string file_path = argv[1];
     char key = argv[2][0];
-
     maelstrom::Maelstrom engine(file_path, key);
+
     try {
         if (!engine.run_engine()) {
             std::cerr << "Failed to process file: " << file_path << std::endl;
