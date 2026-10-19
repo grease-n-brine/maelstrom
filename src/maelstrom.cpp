@@ -1,4 +1,5 @@
 #include "maelstrom.hpp"
+#include "exceptions.hpp"
 #include <fstream>
 #include <vector>
 #include <iostream>
@@ -11,8 +12,7 @@ Maelstrom::Maelstrom(std::string path, char key)
 bool Maelstrom::run_engine() const {
     std::ifstream file(path, std::ios::binary);
     if (!file) {
-        std::cerr << "Failed to open file: " << path << std::endl;
-        return false;
+        throw FileOpenException("Failed to open file: " + path);
     }
 
     std::vector<char> buffer((std::istreambuf_iterator<char>(file)),
