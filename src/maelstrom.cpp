@@ -10,17 +10,18 @@ Maelstrom::Maelstrom(std::string path, char key)
     : path(std::move(path)), key(key) {}
 
 bool Maelstrom::run_engine() const {
-    std::ifstream file(path, std::ios::binary);
-    
-    if (!file) {
+    std::ifstream inFile(path, std::ios::binary);
+
+    if (!inFile) {
         throw FileOpenException("Failed to open file: " + path);
     }
 
-    std::vector<char> buffer((std::istreambuf_iterator<char>(file)),
-                             std::istreambuf_iterator<char>());
+    std::streamsize size = inFile.seekg(0, std::ios::end).tellg();
+    inFile.seekg(0, std::ios::beg);
+    std::vector<char> buffer(size);
 
-    for (auto &c : buffer) {
-        c ^= key;
+    if (!inFile.read(buffer.data(), size)) {
+        throw FileReadException("Failed to read file: " + path);
     }
 
     // Process the buffer as needed
