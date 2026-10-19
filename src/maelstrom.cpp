@@ -1,5 +1,5 @@
-#include "maelstrom.hpp"
-#include "exceptions.hpp"
+#include "../include/maelstrom.hpp"
+#include "../include/exceptions.hpp"
 #include <fstream>
 #include <vector>
 #include <iostream>
@@ -43,9 +43,7 @@ bool Maelstrom::run_engine() const {
         return false;
     }
 
-    outFile.write(buffer.data(), size);
     outFile.close();
-
     return true;
 }
 
