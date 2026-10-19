@@ -42,11 +42,10 @@ bool Maelstrom::run_engine() const {
         throw FileWriteException("Failed to write file: " + path);
         return false;
     }
-    
+
     outFile.write(buffer.data(), size);
     outFile.close();
 
-    // Process the buffer as needed
     return true;
 }
 
